@@ -1,0 +1,115 @@
+GITHUB PUSH GUIDE — IP TRACKER
+================================
+Follow these steps IN ORDER on your Kali Linux terminal.
+
+────────────────────────────────────────────────────────
+STEP 1: INSTALL GIT (if not already installed)
+────────────────────────────────────────────────────────
+sudo apt install git -y
+
+────────────────────────────────────────────────────────
+STEP 2: CONFIGURE GIT WITH YOUR IDENTITY
+────────────────────────────────────────────────────────
+Replace the name and email below with your own:
+
+  git config --global user.name "Your Name"
+  git config --global user.email "your@email.com"
+
+────────────────────────────────────────────────────────
+STEP 3: CREATE A GITHUB ACCOUNT (if you don't have one)
+────────────────────────────────────────────────────────
+Go to: https://github.com/signup
+Sign up with your email.
+
+────────────────────────────────────────────────────────
+STEP 4: CREATE A NEW REPOSITORY ON GITHUB
+────────────────────────────────────────────────────────
+1. Go to: https://github.com/new
+2. Repository name: ip-tracker
+3. Description: Terminal-based IP Geolocation & Intelligence Tool for Kali Linux
+4. Set to PUBLIC
+5. DO NOT check "Add a README file" (you already have one)
+6. Click "Create repository"
+
+────────────────────────────────────────────────────────
+STEP 5: PLACE ALL FILES IN YOUR PROJECT FOLDER
+────────────────────────────────────────────────────────
+Make sure your ~/ip-tracker/ folder has these files:
+  - ip_tracker.py
+  - README.md
+  - DISCLAIMER.md
+  - .gitignore
+  - targets.txt
+
+Copy the files from this guide into that folder if needed.
+
+────────────────────────────────────────────────────────
+STEP 6: INITIALIZE GIT IN YOUR PROJECT FOLDER
+────────────────────────────────────────────────────────
+  cd ~/ip-tracker
+  git init
+  git branch -M main
+
+────────────────────────────────────────────────────────
+STEP 7: ADD ALL FILES TO GIT
+────────────────────────────────────────────────────────
+  git add .
+  git status    ← this shows you what will be committed
+
+────────────────────────────────────────────────────────
+STEP 8: MAKE YOUR FIRST COMMIT
+────────────────────────────────────────────────────────
+  git commit -m "Initial commit: IP Tracker tool with README and disclaimer"
+
+────────────────────────────────────────────────────────
+STEP 9: CONNECT TO YOUR GITHUB REPO
+────────────────────────────────────────────────────────
+Replace YOUR_USERNAME with your actual GitHub username:
+
+  git remote add origin https://github.com/YOUR_USERNAME/ip-tracker.git
+
+────────────────────────────────────────────────────────
+STEP 10: PUSH TO GITHUB
+────────────────────────────────────────────────────────
+  git push -u origin main
+
+GitHub will ask for your username and password.
+NOTE: GitHub no longer accepts passwords — use a Personal Access Token instead.
+
+  HOW TO CREATE A TOKEN:
+  1. Go to: https://github.com/settings/tokens
+  2. Click "Generate new token (classic)"
+  3. Give it a name e.g. "kali-linux"
+  4. Check the "repo" checkbox
+  5. Click "Generate token"
+  6. COPY the token (you only see it once!)
+  7. Use this token as your password when git asks
+
+────────────────────────────────────────────────────────
+STEP 11: VERIFY ON GITHUB
+────────────────────────────────────────────────────────
+Go to: https://github.com/YOUR_USERNAME/ip-tracker
+You should see all your files live!
+
+────────────────────────────────────────────────────────
+FUTURE UPDATES (after you change your code)
+────────────────────────────────────────────────────────
+Every time you want to push new changes:
+
+  git add .
+  git commit -m "Describe what you changed"
+  git push
+
+────────────────────────────────────────────────────────
+TROUBLESHOOTING
+────────────────────────────────────────────────────────
+Error: "remote origin already exists"
+  Fix: git remote remove origin
+       then re-run the git remote add step
+
+Error: "failed to push" / "rejected"
+  Fix: git pull origin main --allow-unrelated-histories
+       then: git push -u origin main
+
+Error: "src refspec main does not match any"
+  Fix: Make sure you made a commit first (Step 8)

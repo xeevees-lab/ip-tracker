@@ -1,0 +1,34 @@
+# Report output files
+report_*.txt
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+
+# Virtual environments
+venv/
+env/
+.env/
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Sensitive files — never commit these!
+*.key
+*.pem
+secrets.txt
+config_local.py
